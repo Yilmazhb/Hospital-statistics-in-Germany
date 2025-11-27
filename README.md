@@ -20,7 +20,99 @@ ORDER BY Gesamtfälle DESC;
 ```
 ### Result:
 
-<img width="472" height="218" alt="Screenshot 2025-11-27 131914" src="https://github.com/user-attachments/assets/5dc4f00d-c545-4778-adbf-5e0404dcfc6f" />
+<img width="469" height="210" alt="Screenshot 2025-11-27 134857" src="https://github.com/user-attachments/assets/79a08c47-b089-492d-a95f-f07253e1f18d" />
+
+# 2. How many male and female patients are there?
+```sql
+SELECT 
+    COUNT(DISTINCT ICD10_Code) as Anzahl_Diagnosen,
+    SUM(insgesamt_insgesamt) as Gesamtpatienten,
+    SUM(maennlich_insgesamt) as Männliche_Patienten,
+    SUM(weiblich_insgesamt) as Weibliche_Patienten,
+    CAST(SUM(maennlich_insgesamt) * 100.0 / SUM(insgesamt_insgesamt) as DECIMAL(5,2)) as Männlich_Prozent,
+    CAST(SUM(weiblich_insgesamt) * 100.0 / SUM(insgesamt_insgesamt) as DECIMAL(5,2)) as Weiblich_Prozent
+FROM Krankenhausstatistik;
+```
+### Result:
+
+<img width="662" height="39" alt="Screenshot 2025-11-27 135246" src="https://github.com/user-attachments/assets/0e439404-e71a-4d8d-8005-27da319fb3d4" />
+
+# 3. How are patients distributed across different age groups?
+```sql
+SELECT 
+    SUM(insgesamt_unter_1_Jahr) as Unter_1_Jahr,
+    SUM(insgesamt_1_bis_unter_5_Jahre) as Kinder_1_5,
+    SUM(insgesamt_5_bis_unter_10_Jahre) as Kinder_5_10,
+    SUM(insgesamt_10_bis_unter_15_Jahre) as Jugendliche_10_15,
+    SUM(insgesamt_15_bis_unter_18_Jahre) as Jugendliche_15_18,
+    SUM(insgesamt_18_bis_unter_20_Jahre) as Junge_Erwachsene_18_20,
+    SUM(insgesamt_20_bis_unter_25_Jahre) as Erwachsene_20_25,
+    SUM(insgesamt_65_bis_unter_70_Jahre) as Senioren_65_70,
+    SUM(insgesamt_80_bis_unter_85_Jahre) as Hochbetagte_80_85,
+    SUM(insgesamt_95_Jahre_und_mehr) as Über_95
+FROM Krankenhausstatistik;
+```
+### Result:
+
+<img width="976" height="38" alt="Screenshot 2025-11-27 141409" src="https://github.com/user-attachments/assets/2f05928c-b3a4-45bc-b002-cd4091a97754" />
+
+# 4. Which diagnoses show the largest difference in patient numbers between males and females?
+```sql
+SELECT TOP 10
+    Diagnose_Bezeichnung,
+    SUM(maennlich_insgesamt) as Männlich,
+    SUM(weiblich_insgesamt) as Weiblich,
+    ABS(SUM(maennlich_insgesamt) - SUM(weiblich_insgesamt)) as Differenz,
+    CASE 
+        WHEN SUM(maennlich_insgesamt) > SUM(weiblich_insgesamt) THEN 'Männer häufiger'
+        ELSE 'Frauen häufiger'
+    END as Tendenz
+FROM Krankenhausstatistik
+WHERE insgesamt_insgesamt > 1000  
+GROUP BY Diagnose_Bezeichnung
+ORDER BY Differenz DESC;
+```
+### Result:
+
+<img width="572" height="216" alt="Screenshot 2025-11-27 141715" src="https://github.com/user-attachments/assets/4ea0bcac-4492-4bc5-a1c4-765c5f7c13fe" />
+
+# 5. What is the average age of patients for each diagnosis group?
+```sql
+SELECT 
+    ICD10_Code,
+    Diagnose_Bezeichnung,
+    SUM(insgesamt_insgesamt) as Gesamtfälle,
+    CAST(
+        (SUM(0.5 * insgesamt_unter_1_Jahr + 3.0 * insgesamt_1_bis_unter_5_Jahre + 7.5 * insgesamt_5_bis_unter_10_Jahre +
+          12.5 * insgesamt_10_bis_unter_15_Jahre + 16.5 * insgesamt_15_bis_unter_18_Jahre + 19.0 * insgesamt_18_bis_unter_20_Jahre +
+          22.5 * insgesamt_20_bis_unter_25_Jahre + 27.5 * insgesamt_25_bis_unter_30_Jahre + 32.5 * insgesamt_30_bis_unter_35_Jahre +
+          37.5 * insgesamt_35_bis_unter_40_Jahre + 42.5 * insgesamt_40_bis_unter_45_Jahre + 47.5 * insgesamt_45_bis_unter_50_Jahre +
+          52.5 * insgesamt_50_bis_unter_55_Jahre + 57.5 * insgesamt_55_bis_unter_60_Jahre + 62.5 * insgesamt_60_bis_unter_65_Jahre +
+          67.5 * insgesamt_65_bis_unter_70_Jahre + 72.5 * insgesamt_70_bis_unter_75_Jahre + 77.5 * insgesamt_75_bis_unter_80_Jahre +
+          82.5 * insgesamt_80_bis_unter_85_Jahre + 87.5 * insgesamt_85_bis_unter_90_Jahre + 92.5 * insgesamt_90_bis_unter_95_Jahre +
+          97.5 * insgesamt_95_Jahre_und_mehr)) / 
+        NULLIF(SUM(insgesamt_insgesamt), 0)
+    as DECIMAL(5,2)) as Durchschnittsalter,
+    
+    
+    CAST(SUM(insgesamt_unter_1_Jahr) * 100.0 / NULLIF(SUM(insgesamt_insgesamt), 0) as DECIMAL(5,2)) as Unter_1_Jahr_Prozent,
+    CAST(SUM(insgesamt_1_bis_unter_5_Jahre) * 100.0 / NULLIF(SUM(insgesamt_insgesamt), 0) as DECIMAL(5,2)) as Kinder_1_5_Prozent,
+    CAST(SUM(insgesamt_65_bis_unter_70_Jahre) * 100.0 / NULLIF(SUM(insgesamt_insgesamt), 0) as DECIMAL(5,2)) as Senioren_65_70_Prozent,
+    CAST(SUM(insgesamt_80_bis_unter_85_Jahre) * 100.0 / NULLIF(SUM(insgesamt_insgesamt), 0) as DECIMAL(5,2)) as Hochbetagte_80_85_Prozent
+
+FROM Krankenhausstatistik
+WHERE insgesamt_insgesamt > 0
+GROUP BY ICD10_Code, Diagnose_Bezeichnung
+ORDER BY Durchschnittsalter DESC;
+```
+### Result:
+
+<img width="1066" height="557" alt="Screenshot 2025-11-27 142627" src="https://github.com/user-attachments/assets/d73a9d49-8442-4299-a0be-b30189d72899" />
+
+
+
+
+
 
 ## Technologies Used
 

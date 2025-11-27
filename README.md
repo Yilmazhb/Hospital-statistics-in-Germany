@@ -22,6 +22,8 @@ ORDER BY Gesamtfälle DESC;
 
 <img width="469" height="210" alt="Screenshot 2025-11-27 134857" src="https://github.com/user-attachments/assets/79a08c47-b089-492d-a95f-f07253e1f18d" />
 
+In summary, chronic lifestyle-related diseases (circulatory, digestive, muscular) together with acute events (injuries) and serious diagnoses such as cancer significantly shape everyday clinical practice in hospitals. The data provides an important basis for planning preventive measures and resource management in the healthcare system.
+
 # 2. How many male and female patients are there?
 ```sql
 SELECT 
@@ -36,6 +38,9 @@ FROM Krankenhausstatistik;
 ### Result:
 
 <img width="662" height="39" alt="Screenshot 2025-11-27 135246" src="https://github.com/user-attachments/assets/0e439404-e71a-4d8d-8005-27da319fb3d4" />
+
+The distribution between male and female patients is almost equal, with a slight surplus of male patients of approximately 3.28%. The almost equal distribution underlines that the healthcare system is used to a similar extent by both genders and highlights the need for gender-equitable care in all areas of medicine.
+
 
 # 3. How are patients distributed across different age groups?
 ```sql
@@ -56,6 +61,8 @@ FROM Krankenhausstatistik;
 
 <img width="976" height="38" alt="Screenshot 2025-11-27 141409" src="https://github.com/user-attachments/assets/2f05928c-b3a4-45bc-b002-cd4091a97754" />
 
+The distribution shows two main burden points in the healthcare system: young adults aged 20–25 and people in early old age (65–70). This finding is crucial for capacity planning in healthcare and for tailoring care services to the needs of these population groups, which require particularly intensive treatment.
+
 # 4. Which diagnoses show the largest difference in patient numbers between males and females?
 ```sql
 SELECT TOP 10
@@ -75,6 +82,8 @@ ORDER BY Differenz DESC;
 ### Result:
 
 <img width="572" height="216" alt="Screenshot 2025-11-27 141715" src="https://github.com/user-attachments/assets/4ea0bcac-4492-4bc5-a1c4-765c5f7c13fe" />
+
+Although more women than men were treated overall (difference: 589,559 cases), the distribution across the individual clinical pictures is very uneven. The data underscores the need for gender-sensitive medicine that takes into account both biological differences and socio-cultural influences in prevention, diagnosis and therapy.
 
 # 5. What is the average age of patients for each diagnosis group?
 ```sql
@@ -108,6 +117,8 @@ ORDER BY Durchschnittsalter DESC;
 ### Result:
 
 <img width="1066" height="557" alt="Screenshot 2025-11-27 142627" src="https://github.com/user-attachments/assets/d73a9d49-8442-4299-a0be-b30189d72899" />
+
+These figures highlight the enormous importance of geriatric medicine in the healthcare system. The most common diagnoses among senior citizens – heart failure, bone fractures, dementia and dehydration – demonstrate the special care needs of this patient group and the necessity of specialised treatment concepts for the ageing population.
 
 
 

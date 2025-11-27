@@ -5,7 +5,7 @@
 Tool: Microsoft SQL   
 Skills: Joins, CTEs, aggregate functions, Case
 
-### Dataset:  
+### Dataset:    
 The dataset is sourced from Germany's official data portal "GovData – Das Datenportal für Deutschland", providing authoritative hospital statistics with ICD-10 classifications, patient demographics, and nationwide coverage. This represents official public health data from the German healthcare system.
   
   - ### Problem:

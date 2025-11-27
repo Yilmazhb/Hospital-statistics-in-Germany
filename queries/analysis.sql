@@ -20,7 +20,7 @@ SELECT TOP 10
     SUM(insgesamt_insgesamt) as Gesamtfälle
 FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
-ORDER BY Gesamtfaelle DESC;
+ORDER BY Gesamtfälle DESC;
 
 
 
@@ -88,15 +88,11 @@ FROM Krankenhausstatistik;
 
 
 
--- 7. What are the Top 10 most common diagnoses?
-SELECT TOP 10 
-    ICD10_Code,
-    Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfälle
+-- 7. What is the total number of patients per year?
+SELECT Jahr, SUM(insgesamt_insgesamt) as Gesamtpatienten
 FROM Krankenhausstatistik
-GROUP BY ICD10_Code, Diagnose_Bezeichnung
-ORDER BY Gesamtfälle DESC;
-
+GROUP BY Jahr
+ORDER BY Jahr;
 
 
 
@@ -160,6 +156,7 @@ FROM Krankenhausstatistik
 WHERE insgesamt_insgesamt > 0
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Durchschnittsalter DESC;
+
 
 
 

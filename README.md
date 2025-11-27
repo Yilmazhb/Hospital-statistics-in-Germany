@@ -1,6 +1,6 @@
 # Hospital statistics in Germany
 
-### Technologies Used
+### Technologies Used:
 
 Tool: Microsoft SQL
 

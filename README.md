@@ -1,13 +1,13 @@
 # Hospital statistics in Germany
 
+### Dataset:    
+The dataset is sourced from Germany's official data portal "GovData – Das Datenportal für Deutschland", providing authoritative hospital statistics with ICD-10 classifications, patient demographics, and nationwide coverage. This represents official public health data from the German healthcare system.
+
 ### Technologies Used:
 
 Tool: Microsoft SQL   
 Skills: Joins, CTEs, aggregate functions, Case
 
-### Dataset:    
-The dataset is sourced from Germany's official data portal "GovData – Das Datenportal für Deutschland", providing authoritative hospital statistics with ICD-10 classifications, patient demographics, and nationwide coverage. This represents official public health data from the German healthcare system.
-  
   - ### Problem:
     Specifically, the problem lies in the fact that valuable insights about disease patterns, age distributions, and gender-specific differences remain hidden within the available hospital data. Health policymakers, hospital managers, and public health experts lack clear visibility into questions such as: Which diseases burden the system the most? Are there age-specific risk groups that require special attention? How do disease patterns differ between men and women?
   

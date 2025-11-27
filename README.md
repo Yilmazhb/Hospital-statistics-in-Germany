@@ -13,10 +13,10 @@
 SELECT TOP 10 
     ICD10_Code,
     Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfaelle
+    SUM(insgesamt_insgesamt) as Gesamtfälle
 FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
-ORDER BY Gesamtfaelle DESC;
+ORDER BY Gesamtfälle DESC;
 ```
 
 

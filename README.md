@@ -127,7 +127,8 @@ These figures highlight the enormous importance of geriatric medicine in the hea
 
 ## Technologies Used
 
-Programming Languages: Microsoft SQL for data processing and scripting.
+Tool: Microsoft SQL
+Skills: Joins, CTEs, aggregate functions, Case
 
 ### Conclusion
 The analyses provide a comprehensive picture of inpatient care in Germany, revealing not just the most common diseases, but also who they affect and at what stage of life. The data shows a clear dominance of chronic, often lifestyle-related conditions. Diseases of the circulatory system are the leading cause of hospital stays, closely followed by injuries and disorders of the digestive and musculoskeletal systems. This underscores the ongoing central role of internal medicine and trauma surgery in clinical practice.

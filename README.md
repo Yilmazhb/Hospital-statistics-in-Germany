@@ -1,7 +1,8 @@
 # Hospital statistics in Germany
 
-## Overview
-This project focuses on analyzing hospital statistics in Germany. The goal is to explore and gain insights into various aspects of the German healthcare system using publicly available data.
+## Problem and solution
+  - Problem: Specifically, the problem lies in the fact that valuable insights about disease patterns, age distributions, and gender-specific differences remain hidden within the available hospital data. Health policymakers, hospital managers, and public health experts lack clear visibility into questions such as: Which diseases burden the system the most? Are there age-specific risk groups that require special attention? How do disease patterns differ between men and women?
+  - Solution: I address this problem through a comprehensive SQL-based analysis of German hospital statistics. My approach involves systematically examining the raw hospital data and transforming it into actionable insights. Using advanced SQL techniques, I break down the data across various dimensions: by diagnosis categories, age groups and gender.
 
 ## Dataset
 This project uses a hospital patient dataset from German hospitals, sourced from GovData – the Open Data Portal for Germany, containing information such as male and female patient counts, diagnoses, and age groups.

@@ -83,7 +83,7 @@ ORDER BY Differenz DESC;
 
 <img width="572" height="216" alt="Screenshot 2025-11-27 141715" src="https://github.com/user-attachments/assets/4ea0bcac-4492-4bc5-a1c4-765c5f7c13fe" />
 
-Although more women than men were treated overall (difference: 589,559 cases), the distribution across the individual clinical pictures is very uneven. The data underscores the need for gender-sensitive medicine that takes into account both biological differences and socio-cultural influences in prevention, diagnosis and therapy.
+Although more women than men were treated overall (difference: 589,559 cases), the distribution across the individual clinical pictures is very uneven. The data underscores the need for gender sensitive medicine that takes into account both biological differences and socio-cultural influences in prevention, diagnosis and therapy.
 
 # 5. What is the average age of patients for each diagnosis group?
 ```sql
@@ -118,7 +118,7 @@ ORDER BY Durchschnittsalter DESC;
 
 <img width="1066" height="557" alt="Screenshot 2025-11-27 142627" src="https://github.com/user-attachments/assets/d73a9d49-8442-4299-a0be-b30189d72899" />
 
-These figures highlight the enormous importance of geriatric medicine in the healthcare system. The most common diagnoses among senior citizens – heart failure, bone fractures, dementia and dehydration – demonstrate the special care needs of this patient group and the necessity of specialised treatment concepts for the ageing population.
+These figures highlight the enormous importance of geriatric medicine within the healthcare system. The most common diagnoses among senior citizens, including heart failure, bone fractures, dementia, and dehydration, clearly demonstrate the specific care requirements of this patient population.
 
 
 

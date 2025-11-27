@@ -125,12 +125,13 @@ These figures highlight the enormous importance of geriatric medicine in the hea
 
 
 
-## Technologies Used
+### Technologies Used
 
 Tool: Microsoft SQL
+
 Skills: Joins, CTEs, aggregate functions, Case
 
-### Conclusion
+# Conclusion
 The analyses provide a comprehensive picture of inpatient care in Germany, revealing not just the most common diseases, but also who they affect and at what stage of life. The data shows a clear dominance of chronic, often lifestyle-related conditions. Diseases of the circulatory system are the leading cause of hospital stays, closely followed by injuries and disorders of the digestive and musculoskeletal systems. This underscores the ongoing central role of internal medicine and trauma surgery in clinical practice.
 
 While the overall number of patients is nearly balanced between men and women, distinct gender patterns emerge for specific diagnoses. Men are significantly more susceptible to ischemic heart disease and substance abuse disorders. Women, conversely, report a higher incidence of musculoskeletal conditions and are, for biological reasons, the sole group affected by pregnancy and childbirth related diagnoses. This highlights the importance of gender sensitive approaches in medicine.

@@ -17,7 +17,7 @@ FROM Krankenhausstatistik;
 SELECT TOP 10 
     ICD10_Code,
     Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfaelle
+    SUM(insgesamt_insgesamt) as Gesamtfälle
 FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Gesamtfaelle DESC;
@@ -61,13 +61,13 @@ ORDER BY Jugend_Fälle DESC;
 
 SELECT 
     Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfaelle,
-    SUM(maennlich_insgesamt) as Maennlich,
+    SUM(insgesamt_insgesamt) as Gesamtfälle,
+    SUM(maennlich_insgesamt) as Männlich,
     SUM(weiblich_insgesamt) as Weiblich
 FROM Krankenhausstatistik
 WHERE ICD10_Code LIKE 'F%'
 GROUP BY Diagnose_Bezeichnung
-ORDER BY Gesamtfaelle DESC;
+ORDER BY Gesamtfälle DESC;
 
 
 
@@ -160,6 +160,7 @@ FROM Krankenhausstatistik
 WHERE insgesamt_insgesamt > 0
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Durchschnittsalter DESC;
+
 
 
 

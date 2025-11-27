@@ -4,7 +4,15 @@
     Specifically, the problem lies in the fact that valuable insights about disease patterns, age distributions, and gender-specific differences remain hidden within the available hospital data. Health policymakers, hospital managers, and public health experts lack clear visibility into questions such as: Which diseases burden the system the most? Are there age-specific risk groups that require special attention? How do disease patterns differ between men and women?
   
   - ### How I Plan On Solving the Problem:
-    I address this problem through a comprehensive SQL-based analysis of German hospital statistics. My approach involves systematically examining the raw hospital data and transforming it into actionable insights. Using advanced SQL techniques, I break down the data across various dimensions: by diagnosis categories, age groups and gender. My goal is to create a data-driven foundation that enables healthcare institutions to make more accurate forecasts,                                                  develop targeted prevention measures, and allocate their limited resources more efficiently. The analysis not only reveals current states but also provides the methodological basis for future trend analyses and comparative studies. 
+    I address this problem through a comprehensive SQL-based analysis of German hospital statistics. My approach involves systematically examining the raw hospital data and transforming it into actionable insights. Using advanced SQL techniques, I break down the data across various dimensions: by diagnosis categories, age groups and gender. My goal is to create a data-driven foundation that enables healthcare institutions to make more accurate forecasts,                                                  develop targeted prevention measures, and allocate their limited resources more efficiently. The analysis not only reveals current states but also provides the methodological basis for future trend analyses and comparative studies.
+
+### Technologies Used
+
+Tool: Microsoft SQL
+
+Skills: Joins, CTEs, aggregate functions, Case
+
+### Dataset:  The dataset is sourced from Germany's official data portal "GovData – Das Datenportal für Deutschland", providing authoritative hospital statistics with ICD-10 classifications, patient demographics, and nationwide coverage. This represents official public health data from the German healthcare system.
 
 # Questions I Wanted To Answer From the Dataset:
 
@@ -119,17 +127,6 @@ ORDER BY Durchschnittsalter DESC;
 <img width="1066" height="557" alt="Screenshot 2025-11-27 142627" src="https://github.com/user-attachments/assets/d73a9d49-8442-4299-a0be-b30189d72899" />
 
 These figures highlight the enormous importance of geriatric medicine within the healthcare system. The most common diagnoses among senior citizens, including heart failure, bone fractures, dementia, and dehydration, clearly demonstrate the specific care requirements of this patient population.
-
-
-
-
-
-
-### Technologies Used
-
-Tool: Microsoft SQL
-
-Skills: Joins, CTEs, aggregate functions, Case
 
 # Conclusion
 The analyses provide a comprehensive picture of inpatient care in Germany, revealing not just the most common diseases, but also who they affect and at what stage of life. The data shows a clear dominance of chronic, often lifestyle-related conditions. Diseases of the circulatory system are the leading cause of hospital stays, closely followed by injuries and disorders of the digestive and musculoskeletal systems. This underscores the ongoing central role of internal medicine and trauma surgery in clinical practice.

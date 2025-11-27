@@ -3,7 +3,6 @@
 ### Technologies Used:
 
 Tool: Microsoft SQL
-
 Skills: Joins, CTEs, aggregate functions, Case
 
 ### Dataset:  

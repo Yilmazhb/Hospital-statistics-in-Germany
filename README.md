@@ -18,7 +18,7 @@ FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Gesamtfälle DESC;
 ```
-###Result:
+### Result:
 
 <img width="472" height="218" alt="Screenshot 2025-11-27 131914" src="https://github.com/user-attachments/assets/5dc4f00d-c545-4778-adbf-5e0404dcfc6f" />
 

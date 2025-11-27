@@ -9,13 +9,15 @@
 # Questions I Wanted To Answer From the Dataset:
 
 # 1. What are the top 10 most frequently occurring diagnoses overall?
-```sql SELECT TOP 10 
+```sql
+SELECT TOP 10 
     ICD10_Code,
     Diagnose_Bezeichnung,
     SUM(insgesamt_insgesamt) as Gesamtfaelle
 FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Gesamtfaelle DESC;
+```
 
 
 ## Technologies Used

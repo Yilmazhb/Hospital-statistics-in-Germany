@@ -81,7 +81,7 @@ SELECT
     SUM(insgesamt_18_bis_unter_20_Jahre) as Junge_Erwachsene_18_20,
     SUM(insgesamt_20_bis_unter_25_Jahre) as Erwachsene_20_25,
     SUM(insgesamt_65_bis_unter_70_Jahre) as Senioren_65_70,
-    SUM(insgesamt_80_bis_unter_85_Jahre) as Hochbetagte_80_85,
+    SUM(insgesamt_80_bis_unter_85_Jahre) as Senioren_80_85,
     SUM(insgesamt_95_Jahre_und_mehr) as Über_95
 FROM Krankenhausstatistik;
 
@@ -156,6 +156,7 @@ FROM Krankenhausstatistik
 WHERE insgesamt_insgesamt > 0
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Durchschnittsalter DESC;
+
 
 
 

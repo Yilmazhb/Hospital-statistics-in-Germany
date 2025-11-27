@@ -4,9 +4,9 @@ USE Krankenhauspatienten;
 SELECT 
     COUNT(DISTINCT ICD10_Code) as Anzahl_Diagnosen,
     SUM(insgesamt_insgesamt) as Gesamtpatienten,
-    SUM(maennlich_insgesamt) as Männliche_Patienten,
+    SUM(maennlich_insgesamt) as MÃ¤nnliche_Patienten,
     SUM(weiblich_insgesamt) as Weibliche_Patienten,
-    CAST(SUM(maennlich_insgesamt) * 100.0 / SUM(insgesamt_insgesamt) as DECIMAL(5,2)) as Männlich_Prozent,
+    CAST(SUM(maennlich_insgesamt) * 100.0 / SUM(insgesamt_insgesamt) as DECIMAL(5,2)) as MÃ¤nnlich_Prozent,
     CAST(SUM(weiblich_insgesamt) * 100.0 / SUM(insgesamt_insgesamt) as DECIMAL(5,2)) as Weiblich_Prozent
 FROM Krankenhausstatistik;
 
@@ -29,10 +29,10 @@ ORDER BY Gesamtfaelle DESC;
 -- 3. Which diagnoses are most common among patients under the age of 10?
 SELECT TOP 10
     Diagnose_Bezeichnung,
-    SUM(insgesamt_unter_1_Jahr + insgesamt_1_bis_unter_5_Jahre + insgesamt_5_bis_unter_10_Jahre) as Kinder_Fälle
+    SUM(insgesamt_unter_1_Jahr + insgesamt_1_bis_unter_5_Jahre + insgesamt_5_bis_unter_10_Jahre) as Kinder_FÃ¤lle
 FROM Krankenhausstatistik
 GROUP BY Diagnose_Bezeichnung
-ORDER BY Kinder_Fälle DESC;
+ORDER BY Kinder_FÃ¤lle DESC;
 
 
 
@@ -43,10 +43,10 @@ SELECT TOP 10
     Diagnose_Bezeichnung,
     SUM(insgesamt_75_bis_unter_80_Jahre + insgesamt_80_bis_unter_85_Jahre + 
         insgesamt_85_bis_unter_90_Jahre + insgesamt_90_bis_unter_95_Jahre + 
-        insgesamt_95_Jahre_und_mehr) as Senioren_Fälle
+        insgesamt_95_Jahre_und_mehr) as Senioren_FÃ¤lle
 FROM Krankenhausstatistik
 GROUP BY Diagnose_Bezeichnung
-ORDER BY Senioren_Fälle DESC;
+ORDER BY Senioren_FÃ¤lle DESC;
 
 
 
@@ -54,10 +54,10 @@ ORDER BY Senioren_Fälle DESC;
 -- 5. What are the most common mental health diagnoses among young people aged 15 to 25?
 SELECT TOP 10
     Diagnose_Bezeichnung,
-    SUM(insgesamt_15_bis_unter_18_Jahre + insgesamt_18_bis_unter_20_Jahre + insgesamt_20_bis_unter_25_Jahre) as Jugend_Fälle
+    SUM(insgesamt_15_bis_unter_18_Jahre + insgesamt_18_bis_unter_20_Jahre + insgesamt_20_bis_unter_25_Jahre) as Jugend_FÃ¤lle
 FROM Krankenhausstatistik
 GROUP BY Diagnose_Bezeichnung
-ORDER BY Jugend_Fälle DESC;
+ORDER BY Jugend_FÃ¤lle DESC;
 
 SELECT 
     Diagnose_Bezeichnung,
@@ -82,7 +82,7 @@ SELECT
     SUM(insgesamt_20_bis_unter_25_Jahre) as Erwachsene_20_25,
     SUM(insgesamt_65_bis_unter_70_Jahre) as Senioren_65_70,
     SUM(insgesamt_80_bis_unter_85_Jahre) as Hochbetagte_80_85,
-    SUM(insgesamt_95_Jahre_und_mehr) as Über_95
+    SUM(insgesamt_95_Jahre_und_mehr) as Ãœber_95
 FROM Krankenhausstatistik;
 
 
@@ -92,10 +92,10 @@ FROM Krankenhausstatistik;
 SELECT TOP 10 
     ICD10_Code,
     Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfälle
+    SUM(insgesamt_insgesamt) as GesamtfÃ¤lle
 FROM Krankenhausstatistik
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
-ORDER BY Gesamtfälle DESC;
+ORDER BY GesamtfÃ¤lle DESC;
 
 
 
@@ -104,15 +104,15 @@ ORDER BY Gesamtfälle DESC;
 -- 8. Which diagnoses show the largest difference in patient numbers between males and females?
 SELECT TOP 10
     Diagnose_Bezeichnung,
-    SUM(maennlich_insgesamt) as Männlich,
+    SUM(maennlich_insgesamt) as MÃ¤nnlich,
     SUM(weiblich_insgesamt) as Weiblich,
     ABS(SUM(maennlich_insgesamt) - SUM(weiblich_insgesamt)) as Differenz,
     CASE 
-        WHEN SUM(maennlich_insgesamt) > SUM(weiblich_insgesamt) THEN 'Männer häufiger'
-        ELSE 'Frauen häufiger'
+        WHEN SUM(maennlich_insgesamt) > SUM(weiblich_insgesamt) THEN 'MÃ¤nner hÃ¤ufiger'
+        ELSE 'Frauen hÃ¤ufiger'
     END as Tendenz
 FROM Krankenhausstatistik
-WHERE insgesamt_insgesamt > 1000  -- Nur relevante Diagnosen
+WHERE insgesamt_insgesamt > 1000  
 GROUP BY Diagnose_Bezeichnung
 ORDER BY Differenz DESC;
 
@@ -137,7 +137,7 @@ ORDER BY Faelle DESC;
 SELECT 
     ICD10_Code,
     Diagnose_Bezeichnung,
-    SUM(insgesamt_insgesamt) as Gesamtfälle,
+    SUM(insgesamt_insgesamt) as GesamtfÃ¤lle,
     CAST(
         (SUM(0.5 * insgesamt_unter_1_Jahr + 3.0 * insgesamt_1_bis_unter_5_Jahre + 7.5 * insgesamt_5_bis_unter_10_Jahre +
           12.5 * insgesamt_10_bis_unter_15_Jahre + 16.5 * insgesamt_15_bis_unter_18_Jahre + 19.0 * insgesamt_18_bis_unter_20_Jahre +
@@ -160,5 +160,6 @@ FROM Krankenhausstatistik
 WHERE insgesamt_insgesamt > 0
 GROUP BY ICD10_Code, Diagnose_Bezeichnung
 ORDER BY Durchschnittsalter DESC;
+
 
 

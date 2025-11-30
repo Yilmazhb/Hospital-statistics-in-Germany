@@ -1,7 +1,4 @@
 # Hospital statistics in Germany
-<img width="542" height="392" alt="Screenshot 2025-11-30 133114" src="https://github.com/user-attachments/assets/a2496f56-596e-4f20-8f4b-3da869cfccbb" />
-
-
  
 ### Dataset:    
 The dataset is sourced from Germany's official data portal "GovData – Das Datenportal für Deutschland", providing authoritative hospital statistics with ICD-10 classifications, patient demographics, and nationwide coverage. This represents official public health data from the German healthcare system.

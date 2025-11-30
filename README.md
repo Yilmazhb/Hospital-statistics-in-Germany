@@ -1,5 +1,6 @@
 # Hospital statistics in Germany
-<img width="980" height="735" alt="Screenshot 2025-11-30 132840" src="https://github.com/user-attachments/assets/5037fcc6-708c-4eaf-8413-2dbb7dd0d103" />
+<img width="542" height="392" alt="Screenshot 2025-11-30 133114" src="https://github.com/user-attachments/assets/a2496f56-596e-4f20-8f4b-3da869cfccbb" />
+
 
  
 ### Dataset:    
